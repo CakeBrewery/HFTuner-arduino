@@ -46,16 +46,19 @@ public class PitchDetector implements PitchDetectionHandler
 
 
   public void handlePitch(PitchDetectionResult pitchDetectionResult,AudioEvent audioEvent) {
+	  targetFreq = 147;
 		if(pitchDetectionResult.getPitch() != -1){
 			float pitch = pitchDetectionResult.getPitch();
 			float probability = pitchDetectionResult.getProbability();
 
-			if(pitch > targetFreq+1){
+			if(pitch > targetFreq+5){
 				controller.sendData("d"); //tune down
-			}else if (pitch < targetFreq+1){
+			}else if (pitch < targetFreq-5){
 				controller.sendData("u"); //tune up
 			}else {
+				System.out.println("INTUNE");
 				controller.sendData("n"); //neutral
+				controller.close(); 
 			}
 			
 			String message = String.format("Frequency: %.2fHz ( %.2f probability)", pitch,probability);

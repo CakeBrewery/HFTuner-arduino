@@ -18,10 +18,10 @@ public class ArduinoController implements SerialPortEventListener  {
 
     private static final String PORT_NAMES[] = { 
         "/dev/tty.usbmodem", // Mac OS X
-//        "/dev/usbdev", // Linux
-//        "/dev/tty", // Linux
-//        "/dev/serial", // Linux
-//        "COM3", // Windows
+        "/dev/usbdev", // Linux
+        "/dev/tty", // Linux
+       "/dev/serial", // Linux
+        "COM6", // Windows
     };
     
     private String appName;
@@ -148,13 +148,17 @@ public class ArduinoController implements SerialPortEventListener  {
         	PitchDetector pitch_handler = new PitchDetector();
         	pitch_handler.setup(controller, 110);
         	pitch_handler.run();
-        	/*
+        	
+        	
+        	
             controller.sendData("y");
             try { Thread.sleep(2000); } catch (InterruptedException ie) {}
             controller.sendData("n");
             try { Thread.sleep(2000); } catch (InterruptedException ie) {}
             controller.close();
-            */
+           
+        	
+        	controller.close(); 
         }
         /*
         // Wait 5 seconds then shutdown
