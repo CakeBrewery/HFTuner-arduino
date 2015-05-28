@@ -11,7 +11,8 @@ import java.util.Enumeration;
 
 
 /**
- * Arduino controller based on ericjbruno's serial rxtx tutorial
+ * Arduino controller based on ericjbruno's serial rxtx tutorial, except for main and pitchHandler 
+ * That can be found at http://www.drdobbs.com/jvm/control-an-arduino-from-java/240163864
  */
 public class ArduinoController implements SerialPortEventListener  {
     SerialPort serialPort = null;
@@ -151,11 +152,11 @@ public class ArduinoController implements SerialPortEventListener  {
         	
         	
         	
-            controller.sendData("y");
-            try { Thread.sleep(2000); } catch (InterruptedException ie) {}
-            controller.sendData("n");
-            try { Thread.sleep(2000); } catch (InterruptedException ie) {}
-            controller.close();
+            //controller.sendData("y");
+           // try { Thread.sleep(2000); } catch (InterruptedException ie) {}
+            //controller.sendData("n");
+           // try { Thread.sleep(2000); } catch (InterruptedException ie) {}
+            //controller.close();
            
         	
         	controller.close(); 
